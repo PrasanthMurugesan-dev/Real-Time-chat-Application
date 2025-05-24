@@ -22,4 +22,6 @@ Project Structure:
 
 output:
 
+![Image Alt](https://github.com/PrasanthMurugesan-dev/Real-Time-chat-Application/blob/0b74fa297428c5d7ab5cb68393c265318adf0034/image.png)
+
 
