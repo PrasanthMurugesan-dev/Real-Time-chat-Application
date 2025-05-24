@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemeChat - Professional Chat</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+      <div class="splash-content">
+        <div class="logo-container">
+          <i class="fas fa-comment-dots logo-icon"></i>
+          <h1>MemeChat</h1>
+          <p>Connect. Chat. Share Moments.</p>
+        </div>
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="chat-container hidden" id="main-app">
+      <!-- App Header -->
+      <header class="chat-header">
+        <div class="brand">
+          <i class="fas fa-comment-dots"></i>
+          <h1>MemeChat</h1>
+        </div>
+        <div class="user-info">
+          <span id="user-display"></span>
+          <div class="status-indicator online"></div>
+          <button id="logout-btn" class="hidden">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Login Section -->
+      <div id="login" class="login-container">
+        <div class="login-card">
+          <h2>Welcome to MemeChat <i class="fas fa-heart"></i></h2>
+          <p class="login-subtitle">Connect with people around the world</p>
+          <form id="name-form">
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" placeholder="Enter your name" required maxlength="20" />
+            </div>
+            <button type="submit" class="primary-btn">
+              <span>Start Chatting</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Chat Section -->
+      <div id="chat" class="chat-section hidden">
+        <div class="chat-partner-info">
+          <div id="partner-status">
+            <i class="fas fa-search"></i> Looking for a chat partner...
+          </div>
+          <div id="partner-name" class="partner-name hidden">
+            <i class="fas fa-user-circle"></i>
+            <span></span>
+            <div class="partner-status-dot"></div>
+          </div>
+        </div>
+        
+        <div id="messages" class="messages-container">
+          <!-- Messages will be added dynamically -->
+        </div>
+        
+        <div id="typing-status" class="typing-status"></div>
+        
+        <div class="chat-input-area">
+          <button id="emoji-btn" class="tool-btn" title="Emojis">
+            <i class="fas fa-smile"></i>
+          </button>
+          
+          <label for="imageInput" class="tool-btn" title="Share Image">
+            <i class="fas fa-image"></i>
+          </label>
+          <input type="file" id="imageInput" accept="image/*" hidden />
+          
+          <form id="chat-form" class="message-form">
+            <input id="msg" autocomplete="off" placeholder="Type a message..." />
+            <button type="submit" title="Send Message">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+          <!-- Scroll To Bottom Button -->
+          <button id="scroll-down-btn" class="hidden" aria-label="Scroll to bottom">
+              <i class="fas fa-chevron-down"></i>
+          </button>
+
+        </div>
+        
+        <!-- Emoji Picker -->
+        <div id="emoji-picker" class="emoji-picker hidden">
+          <div class="emoji-header">
+            <h4>Choose an emoji</h4>
+            <button id="emoji-close" class="emoji-close-btn">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="emoji-categories">
+            <button class="emoji-category-btn active" data-category="smileys" title="Smileys">
+              😊
+            </button>
+            <button class="emoji-category-btn" data-category="hearts" title="Hearts">
+              ❤️
+            </button>
+            <button class="emoji-category-btn" data-category="gestures" title="Gestures">
+              👍
+            </button>
+            <button class="emoji-category-btn" data-category="objects" title="Objects">
+              🎉
+            </button>
+            <button class="emoji-category-btn" data-category="nature" title="Nature">
+              🌿
+            </button>
+          </div>
+          <div class="emoji-container" id="emoji-container">
+            <!-- Emoji grid will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Connection Control -->
+      <div class="connection-controls">
+        <button id="new-chat" class="hidden">
+          <i class="fas fa-random"></i> 
+          <span>New Match</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="image-modal hidden">
+      <div class="image-modal-content">
+        <span class="image-modal-close">&times;</span>
+        <img id="modal-image" src="" alt="Full size image" />
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+  <!-- Scripts -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/emoji.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

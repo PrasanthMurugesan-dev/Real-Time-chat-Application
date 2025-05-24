@@ -1,0 +1,26 @@
+{
+  "name": "meme-chat",
+  "version": "1.0.0",
+  "description": "WhatsApp-style real-time chat application for memes and messages",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "chat",
+    "socket.io",
+    "real-time",
+    "whatsapp",
+    "meme"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
